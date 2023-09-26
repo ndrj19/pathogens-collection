@@ -1,47 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Template</title>
+
+    <meta name="description" content="Pathogens collection">
+    <meta name="author" content="Me">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="icon" href="images/favicon.png" sizes="192x192">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+
+    <!-- <script defer src="js/index.js"></script> -->
+</head>
+
+</html>
+
 <?php
 
-// 1. Connect to DB and save in variable
+require_once("db-conn.php");
 
-$host = 'db';
-$db = 'iostaff';
-$user = 'root';
-$password = 'password';
-
-$dsn = "mysql:host=$host;dbname=$db;";
-// dsn = data source name
-
-$options = [
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-];
-
-try {
-    $pdo = new PDO($dsn, $user, $password, $options);
-} catch (PDOException $exception) {
-    // type hint
-    echo '<p>There was an error connecting to the db.</p>';
-    exit();
-}
-
-// 2. Prepare statement
-
-$query = $pdo->prepare(
-    'SELECT `p`.`id`, `p`.`NAME`, `l`.`NAME` AS location, `c`.`NAME` AS colour
-        FROM `people` `p`
-        LEFT JOIN `locations` `l` ON `l`.`id` = `p`.`location`
-        LEFT JOIN `colours` `c` ON `c`.`id` = `p`.`fav_colour`
-;'
-);
-
-// 3. Execute the query
-
-$query->execute();
-
-$staffers = $query->fetchAll();
-
-echo '<h1>Staff members</h1>';
+echo '<h1>Pathogens</h1>';
 echo '<ul>';
-foreach ($staffers as $staffer) {
-    echo '<li>' . $staffer['NAME'] . ' - ' . $staffer['location'] . ' - ' . $staffer['colour'] . '</li>';
+foreach ($pathogens as $pathogen) {
+    echo '<li>' . $pathogen['species'] . ' - ' . $pathogen['aka'] . '</li>';
 }
 echo '</ul>';
+
+?>
