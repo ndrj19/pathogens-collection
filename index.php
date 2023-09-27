@@ -1,5 +1,6 @@
 <?php
 require_once("db-conn.php");
+require_once("functions.php");
 ?>
 
 <!DOCTYPE html>
@@ -38,20 +39,7 @@ require_once("db-conn.php");
         <div id="pathogens-box">
             <?php
             foreach ($pathogens as $pathogen) {
-                $image_link = $pathogen['image_link'];
-                $deaths_per_year = number_format($pathogen['deaths_per_year']);
-                $aka = $pathogen['aka'];
-
-                echo '<div class="card"><div>
-                <img src="' . $image_link . '" alt="Image of ' . $aka . '." class="card-image">';
-                echo '<p> Species: ' . $pathogen['species'] . '</p>';
-                echo '<p> AKA: ' . $aka . '</p>';
-                echo '<p> Class: ' . $pathogen['pathogen_classification'] . '</p>';
-                echo '<p> Mortality: ' . $pathogen['mortality_rate'] . '</p>';
-                echo '<p> Deaths per year : ' . $deaths_per_year . '</p>';
-                echo '<p> Year: ' . $pathogen['year'] . '</p>';
-                echo '<p class="gtk"> Good to know: ' . $pathogen['good_to_know'] . '</p>';
-                echo '</div></div>';
+                echo createCard($pathogen);
             }
             ?>
         </div>

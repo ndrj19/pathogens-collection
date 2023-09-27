@@ -36,6 +36,7 @@ $query = $pdo->prepare(
     `p`.`image_link`
     FROM `pathogens` `p`
     LEFT JOIN `pathogen_classifications` `c` ON `c`.`id` = `p`.`pathogen_classification`
+    ORDER BY 3
     ;'
 );
 

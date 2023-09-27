@@ -3,11 +3,11 @@
 }
 
 body{
-  font-family: 'Source Code Pro', monospace;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif; 
 }
 
 h1, p {
-  color: antiquewhite;
+  color: #000000;
 }
 
 #top-nav {
@@ -15,7 +15,7 @@ h1, p {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: #556b2f;
+  background-color: #ffffff;
   padding-left: 2rem;
 }
 
@@ -45,7 +45,7 @@ h1, p {
   padding: 1rem;
   box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.75);
   border-radius: 10px;
-  background-color: #556b2f;
+  background-color: #ffffff;
 }
 
 .card-image {
@@ -55,4 +55,10 @@ h1, p {
 
 .gtk {
   font-style: italic;
+}
+
+@media only screen and (max-width: 750px) {
+  .card {
+    width: 100%;
+  }
 }
