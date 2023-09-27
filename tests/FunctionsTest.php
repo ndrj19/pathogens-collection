@@ -28,7 +28,7 @@ class FunctionsTest extends TestCase
             . '<img src="https://i.ibb.co/qFcWjSt/Aspergillus.jpg" alt="Image of Aspergillus." class="card-image">'
             . '<p> Species: Aspergillus fumigatus</p>'
             . '<p> A.k.a: Aspergillus</p>'
-            . '<p> Class: Fungi</p>'
+            . '<p> Classification: Fungi</p>'
             . '<p> Mortality: 25-90% in immunosuppressed</p>'
             . '<p> Deaths per year : 600</p>'
             . '<p> Year: 2017</p>'
@@ -51,6 +51,17 @@ class FunctionsTest extends TestCase
         $input = "I am the wrong input";
 
         $this->expectException(TypeError::class);
+
+        // Act
+        $result = createCard($input);
+    }
+
+    public function testCreateCardGivenEmptyArrayReturnString()
+    {
+        // Arrange
+        $input = array();
+
+        $this->expectException(InvalidArgumentException::class);
 
         // Act
         $result = createCard($input);
