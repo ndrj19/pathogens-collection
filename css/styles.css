@@ -3,7 +3,7 @@
 }
 
 body{
-  font-family: Futura,Trebuchet MS,Arial,sans-serif; 
+  font-family: Futura, Trebuchet MS, Arial, sans-serif; 
 }
 
 h1, p {
@@ -13,8 +13,8 @@ h1, p {
 #top-nav {
   width: 100%;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: space-around;
+  align-items: center;
   background-color: #ffffff;
   padding-left: 2rem;
 }
@@ -55,6 +55,53 @@ h1, p {
 
 .gtk {
   font-style: italic;
+}
+
+.side-panel  {
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  height: 250px;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.side-panel a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.side-panel a:hover {
+  color: #f1f1f1;
+}
+
+.side-panel .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+
+.add-items {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 1rem;
+}
+
+.add-items:hover {
+  background-color:#444;
 }
 
 @media only screen and (max-width: 750px) {

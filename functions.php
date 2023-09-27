@@ -6,6 +6,10 @@ function createCard(array $pathogen): string
         throw new TypeError("Input not an array");
     }
 
+    if ($pathogen === []) {
+        throw new InvalidArgumentException("Input array cannot be empty");
+    }
+
     $image_link = $pathogen['image_link'];
     $deaths_per_year = number_format($pathogen['deaths_per_year']);
     $aka = $pathogen['aka'];
@@ -15,7 +19,7 @@ function createCard(array $pathogen): string
     $cardHtml .= '<div class="card"><div><img src="' . $image_link . '" alt="Image of ' . $aka . '." class="card-image">'
         . '<p> Species: ' . $pathogen['species'] . '</p>'
         . '<p> A.k.a: ' . $aka . '</p>'
-        . '<p> Class: ' . $pathogen['pathogen_classification'] . '</p>'
+        . '<p> Classification: ' . $pathogen['pathogen_classification'] . '</p>'
         . '<p> Mortality: ' . $pathogen['mortality_rate'] . '</p>'
         . '<p> Deaths per year : ' . $deaths_per_year . '</p>'
         . '<p> Year: ' . $pathogen['year'] . '</p>'

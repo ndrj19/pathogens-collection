@@ -26,13 +26,51 @@ require_once("functions.php");
     <link rel="shortcut icon" href="images/favicon.png">
     <link rel="apple-touch-icon" href="images/favicon.png">
 
-    <!-- <script defer src="js/index.js"></script> -->
+    <script>
+        function openNav() {
+            document.getElementById("side-panel").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("side-panel").style.width = "0";
+        }
+    </script>
+
 </head>
 
 <body>
     <nav>
         <div id="top-nav">
             <h1>My Favorite Pathogens</h1>
+            <button id="add-items" class="add-items" onclick="openNav()">Add to collection</button>
+            <div id="side-panel" class="side-panel">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                <form action="processform.php" method="POST">
+                    <label for="species">Species: </label>
+                    <input type="text" name="species" required>
+
+                    <label for="aka">A.k.a: </label>
+                    <input type="text" name="aka" required>
+
+                    <label for="classification">Classification: </label>
+                    <input type="text" name="species" required>
+
+                    <label for="mortality">Mortality: </label>
+                    <input type="text" name="mortality" required>
+
+                    <label for="deaths-per-year">Deaths per year: </label>
+                    <input type="number" name="deaths-per-year" required>
+
+                    <label for="year">Year: </label>
+                    <input type="number" name="year" required>
+
+                    <label for="good-to-know">Good to know: </label>
+                    <input type="text" name="good-to-know" required>
+
+                    <label for="image-link">Image link: </label>
+                    <input type="text" name="image-link" required>
+                </form>
+            </div>
         </div>
     </nav>
     <section id="background">
