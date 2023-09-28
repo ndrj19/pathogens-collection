@@ -27,3 +27,17 @@ function createCard(array $pathogen): string
         . '</div></div>';
     return $cardHtml;
 }
+
+function validFormInputs(int $deathsPerYear, int $year, string $imageLink): bool
+{
+    $optionsDPR = [
+        'options' => array('min_range' => 0)
+    ];
+    $optionsY = [
+        'options' => array('min_range' => 1000)
+    ];
+    return
+        filter_var($deathsPerYear, FILTER_VALIDATE_INT, $optionsDPR) &&
+        filter_var($year, FILTER_VALIDATE_INT, $optionsY) &&
+        filter_var($imageLink, FILTER_VALIDATE_URL);
+}

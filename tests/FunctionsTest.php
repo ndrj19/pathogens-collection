@@ -66,4 +66,88 @@ class FunctionsTest extends TestCase
         // Act
         $result = createCard($input);
     }
+
+    // Success test
+    public function testValidFormInputsGivenRightParametersReturnTrue()
+    {
+        // Arrange
+        $deathsPerYear = 100;
+        $year = 2022;
+        $imageLink = "https://placedog.net/500";
+
+        // Act
+        $result = validFormInputs($deathsPerYear, $year, $imageLink);
+
+        // Assert
+        $this->assertTrue($result);
+    }
+
+    // Failure tests
+    public function testValidFormInputsGivenWrongFirstParameterThrowError()
+    {
+        // Arrange
+        $deathsPerYear = 'hundred';
+        $year = 2022;
+        $imageLink = "https://placedog.net/500";
+
+        $this->expectException(TypeError::class);
+
+        // Act
+        $result = validFormInputs($deathsPerYear, $year, $imageLink);
+    }
+
+    public function testValidFormInputsGivenWrongSecondParameterThrowError()
+    {
+        // Arrange
+        $deathsPerYear = 100;
+        $year = 'thousand';
+        $imageLink = "https://placedog.net/500";
+
+        $this->expectException(TypeError::class);
+
+        // Act
+        $result = validFormInputs($deathsPerYear, $year, $imageLink);
+    }
+
+    public function testValidFormInputsGivenWrongThirdParameterReturnFalse()
+    {
+        // Arrange
+        $deathsPerYear = 100;
+        $year = 2022;
+        $imageLink = "placedognet/500";
+
+        // Act
+        $result = validFormInputs($deathsPerYear, $year, $imageLink);
+
+        // Assert
+        $this->assertFalse($result);
+    }
+
+    public function testValidFormInputsGivenNegativeDeathsReturnFalse()
+    {
+        // Arrange
+        $deathsPerYear = -100;
+        $year = 2022;
+        $imageLink = "https://placedog.net/500";
+
+        // Act
+        $result = validFormInputs($deathsPerYear, $year, $imageLink);
+
+        // Assert
+        $this->assertFalse($result);
+    }
+
+    public function testValidFormInputsGivenInvalidYearReturnFalse()
+    {
+        // Arrange
+        $deathsPerYear = 100;
+        $year = 999;
+        $imageLink = "https://placedog.net/500";
+
+        // Act
+        $result = validFormInputs($deathsPerYear, $year, $imageLink);
+
+        // Assert
+        $this->assertFalse($result);
+    }
 }

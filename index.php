@@ -1,6 +1,8 @@
 <?php
 require_once("db-conn.php");
+require_once("retrievedata.php");
 require_once("functions.php");
+require_once("pathogen-classifications.php");
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +22,7 @@ require_once("functions.php");
     <meta name="author" content="Me">
 
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/styles.css">
 
     <link rel="icon" href="images/favicon.png" sizes="192x192">
@@ -28,11 +31,11 @@ require_once("functions.php");
 
     <script>
         function openNav() {
-            document.getElementById("side-panel").style.width = "250px";
+            document.querySelector("#bottom-panel").style.width = "90%";
         }
 
         function closeNav() {
-            document.getElementById("side-panel").style.width = "0";
+            document.querySelector("#bottom-panel").style.width = "0";
         }
     </script>
 
@@ -43,32 +46,57 @@ require_once("functions.php");
         <div id="top-nav">
             <h1>My Favorite Pathogens</h1>
             <button id="add-items" class="add-items" onclick="openNav()">Add to collection</button>
-            <div id="side-panel" class="side-panel">
+            <div id="bottom-panel" class="bottom-panel">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-                <form action="processform.php" method="POST">
-                    <label for="species">Species: </label>
-                    <input type="text" name="species" required>
+                <form action="processform.php" method="POST" id="input-form">
+                    <div class="form-item">
+                        <label for="species">Species: </label>
+                        <input type="text" name="species" required>
+                    </div>
 
-                    <label for="aka">A.k.a: </label>
-                    <input type="text" name="aka" required>
+                    <div class="form-item">
+                        <label for="aka">A.k.a: </label>
+                        <input type="text" name="aka" required>
+                    </div>
 
-                    <label for="classification">Classification: </label>
-                    <input type="text" name="species" required>
+                    <div class="form-item">
+                        <label for="classification">Classification: </label>
+                        <select id="classification" name="classification">
+                            <?php
+                            $optionshtml = '';
+                            for ($i = 0; $i < count($classifications); $i++) {
+                                $optionshtml .= '<option value = "' . $classifications[$i] . '" >' . $classifications[$i] . '</option >';
+                            }
+                            echo $optionshtml;
+                            ?>
+                        </select>
+                    </div>
 
-                    <label for="mortality">Mortality: </label>
-                    <input type="text" name="mortality" required>
+                    <div class="form-item">
+                        <label for="mortality">Mortality: </label>
+                        <input type="text" name="mortality" required>
+                    </div>
 
-                    <label for="deaths-per-year">Deaths per year: </label>
-                    <input type="number" name="deaths-per-year" required>
+                    <div class="form-item">
+                        <label for="deaths-per-year">Deaths per year: </label>
+                        <input type="number" min="0" name="deathsPerYear" required>
+                    </div>
 
-                    <label for="year">Year: </label>
-                    <input type="number" name="year" required>
+                    <div class="form-item">
+                        <label for="year">Year: </label>
+                        <input type="number" min="1000" name="year" required>
+                    </div>
 
-                    <label for="good-to-know">Good to know: </label>
-                    <input type="text" name="good-to-know" required>
+                    <div class="form-item">
+                        <label for="good-to-know">Good to know: </label>
+                        <input type="text" name="goodToKnow" required>
+                    </div>
 
-                    <label for="image-link">Image link: </label>
-                    <input type="text" name="image-link" required>
+                    <div class="form-item">
+                        <label for="image-link">Image link: </label>
+                        <input type="text" name="imageLink" required>
+                    </div>
+                    <button type="submit" id="submitbtn">SUBMIT</button>
                 </form>
             </div>
         </div>

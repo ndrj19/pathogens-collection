@@ -15,8 +15,9 @@ h1, p {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #ffffff;
+  background-color: #f1f1f1;
   padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 #background {
@@ -44,8 +45,8 @@ h1, p {
   color: #000000;
   padding: 1rem;
   box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.75);
-  border-radius: 10px;
-  background-color: #ffffff;
+  border-radius: 1rem;
+  background-color: #f1f1f1;
 }
 
 .card-image {
@@ -57,55 +58,98 @@ h1, p {
   font-style: italic;
 }
 
-.side-panel  {
+.bottom-panel  {
   width: 0;
   position: fixed;
   z-index: 1;
-  height: 250px;
-  top: 0;
-  left: 0;
-  background-color: #111;
+  height: 98%;
+  top: 1%;
+  background-color: #000000cc;
+  color: #f1f1f1;
   overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
+  transition: 0.75s;
+  padding-top: 2.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 2rem;
 }
 
-.side-panel a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
+#input-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  gap: 2rem;
 }
 
-.side-panel a:hover {
+label {
+  font-weight: bold;
+}
+
+input {
+  background-color: #525252;
   color: #f1f1f1;
 }
 
-.side-panel .closebtn {
+.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#classification {
+  background-color: #525252;
+  color: #f1f1f1;
+  font-weight: bold;
+}
+
+#submitbtn {
+  width: 50%;
+  justify-self: center;
+  align-self: center;
+  background-color: transparent;
+  color: #f1f1f1;
+  font-size: 2rem;
+  align-items: center;
+  border: none;
+  border-radius: 2rem;
+}
+
+#submitbtn:hover {
+  color: #c0c0c0;
+  cursor: pointer;
+}
+
+.closebtn {
   position: absolute;
   top: 0;
-  right: 25px;
-  font-size: 36px;
+  right: 1.5%;
+  font-size: 1.75rem;
+  color: #f1f1f1;
 }
 
 .add-items {
-  font-size: 20px;
+  font-size: 1.5rem;
   cursor: pointer;
   background-color: #000000;
-  color: #ffffff;
-  padding: 10px 15px;
+  color: #f1f1f1;
+  padding: 0.75rem;
   border: none;
   border-radius: 1rem;
 }
 
 .add-items:hover {
-  background-color:#444;
+  background-color:#525252;
 }
 
 @media only screen and (max-width: 750px) {
   .card {
     width: 100%;
+  }
+  .add-items {
+    font-size: 1rem;
+  }
+  .closebtn {
+    right: 5%;
   }
 }
