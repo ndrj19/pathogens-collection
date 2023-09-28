@@ -17,7 +17,8 @@ $imageLink = $_POST['imageLink'];
 
 if (
     filter_var($deathsPerYear, FILTER_VALIDATE_INT) &&
-    filter_var($year, FILTER_VALIDATE_INT)
+    filter_var($year, FILTER_VALIDATE_INT) &&
+    filter_var($imageLink, FILTER_VALIDATE_URL)
 ) {
 
     // Prepare statement
@@ -44,5 +45,5 @@ if (
 
     header('Location: index.php');
 } else {
-    echo 'There was an issue with you input';
+    echo 'There was an issue with your input';
 }
