@@ -2,6 +2,7 @@
 
 require_once("db-conn.php");
 require_once("pathogen-classifications.php");
+require_once("functions.php");
 
 $species = $_POST['species'];
 $aka = $_POST['aka'];
@@ -15,11 +16,7 @@ $year = filter_var($_POST['year'], FILTER_SANITIZE_NUMBER_INT);
 $goodToKnow = $_POST['goodToKnow'];
 $imageLink = $_POST['imageLink'];
 
-if (
-    filter_var($deathsPerYear, FILTER_VALIDATE_INT) &&
-    filter_var($year, FILTER_VALIDATE_INT) &&
-    filter_var($imageLink, FILTER_VALIDATE_URL)
-) {
+if (validFormInputs($deathsPerYear, $year, $imageLink)) {
 
     // Prepare statement
 

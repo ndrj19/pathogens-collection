@@ -2,6 +2,7 @@
 require_once("db-conn.php");
 require_once("retrievedata.php");
 require_once("functions.php");
+require_once("pathogen-classifications.php");
 ?>
 
 <!DOCTYPE html>
@@ -61,10 +62,13 @@ require_once("functions.php");
                     <div class="form-item">
                         <label for="classification">Classification: </label>
                         <select id="classification" name="classification">
-                            <option value="Bacteria">Bacteria</option>
-                            <option value="Virus">Virus</option>
-                            <option value="Parasite">Parasite</option>
-                            <option value="Fungi">Fungi</option>
+                            <?php
+                            $optionshtml = '';
+                            for ($i = 0; $i < count($classifications); $i++) {
+                                $optionshtml .= '<option value = "' . $classifications[$i] . '" >' . $classifications[$i] . '</option >';
+                            }
+                            echo $optionshtml;
+                            ?>
                         </select>
                     </div>
 

@@ -15,3 +15,9 @@ $intClasses = [];
 for ($i = 1; $i <= count($pathogen_classifications); $i++) {
     $intClasses[$pathogen_classifications[$i - 1]["pathogen_classification"]] = $i;
 }
+
+$classifications = [];
+
+for ($i = 0; $i < count($pathogen_classifications); $i++) {
+    $classifications[] = $pathogen_classifications[$i]["pathogen_classification"];
+}
