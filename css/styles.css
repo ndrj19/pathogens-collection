@@ -62,18 +62,15 @@ h1, p {
   width: 0;
   position: fixed;
   z-index: 1;
-  height: 50%;
-  bottom: 0;
-  left: 0;
+  height: 98%;
+  top: 1%;
   background-color: #000000cc;
   color: #f1f1f1;
   overflow-x: hidden;
-  transition-property: all;
   transition: 0.75s;
   padding-top: 2.5rem;
   padding-bottom: 0.5rem;
-  border-top-left-radius: 2rem;
-  border-top-right-radius: 2rem;
+  border-radius: 2rem;
 }
 
 #input-form {

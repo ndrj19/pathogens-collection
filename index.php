@@ -31,11 +31,11 @@ require_once("pathogen-classifications.php");
 
     <script>
         function openNav() {
-            document.getElementById("bottom-panel").style.width = "100%";
+            document.querySelector("#bottom-panel").style.width = "90%";
         }
 
         function closeNav() {
-            document.getElementById("bottom-panel").style.width = "0";
+            document.querySelector("#bottom-panel").style.width = "0";
         }
     </script>
 
