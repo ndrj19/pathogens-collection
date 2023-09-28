@@ -3,7 +3,6 @@
 require_once("db-conn.php");
 require_once("pathogen-classifications.php");
 
-
 $species = $_POST['species'];
 $aka = $_POST['aka'];
 
