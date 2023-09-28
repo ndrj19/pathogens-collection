@@ -60,7 +60,6 @@ h1, p {
 
 .bottom-panel  {
   width: 0;
-  display: flex;
   position: fixed;
   z-index: 1;
   height: 50%;
@@ -69,9 +68,10 @@ h1, p {
   background-color: #000000cc;
   color: #f1f1f1;
   overflow-x: hidden;
-  transition: 1s;
+  transition-property: all;
+  transition: 0.75s;
   padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
+  padding-bottom: 0.5rem;
   border-top-left-radius: 2rem;
   border-top-right-radius: 2rem;
 }
@@ -80,6 +80,7 @@ h1, p {
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding: 1rem;
   gap: 2rem;
 }
@@ -95,13 +96,37 @@ input {
 .form-item {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+}
+
+#classification {
+  background-color: #525252;
+  color: #f1f1f1;
+  font-weight: bold;
+}
+
+#submitbtn {
+  width: 50%;
+  justify-self: center;
+  align-self: center;
+  background-color: transparent;
+  color: #f1f1f1;
+  font-size: 2rem;
+  align-items: center;
+  border: none;
+  border-radius: 2rem;
+}
+
+#submitbtn:hover {
+  color: #c0c0c0;
+  cursor: pointer;
 }
 
 .closebtn {
   position: absolute;
   top: 0;
   right: 1.5%;
-  font-size: 2rem;
+  font-size: 1.75rem;
   color: #f1f1f1;
 }
 
@@ -122,5 +147,11 @@ input {
 @media only screen and (max-width: 750px) {
   .card {
     width: 100%;
+  }
+  .add-items {
+    font-size: 1rem;
+  }
+  .closebtn {
+    right: 5%;
   }
 }
