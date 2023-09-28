@@ -1,5 +1,6 @@
 <?php
 require_once("db-conn.php");
+require_once("retrievedata.php");
 require_once("functions.php");
 ?>
 
@@ -59,7 +60,12 @@ require_once("functions.php");
 
                     <div class="form-item">
                         <label for="classification">Classification: </label>
-                        <input type="text" name="species" required>
+                        <select id="classification" name="classification">
+                            <option value="Bacteria">Bacteria</option>
+                            <option value="Virus">Virus</option>
+                            <option value="Parasite">Parasite</option>
+                            <option value="Fungi">Fungi</option>
+                        </select>
                     </div>
 
                     <div class="form-item">
@@ -69,23 +75,24 @@ require_once("functions.php");
 
                     <div class="form-item">
                         <label for="deaths-per-year">Deaths per year: </label>
-                        <input type="number" name="deaths-per-year" required>
+                        <input type="number" min="0" name="deathsPerYear" required>
                     </div>
 
                     <div class="form-item">
                         <label for="year">Year: </label>
-                        <input type="number" name="year" required>
+                        <input type="number" min="1000" name="year" required>
                     </div>
 
                     <div class="form-item">
                         <label for="good-to-know">Good to know: </label>
-                        <input type="text" name="good-to-know" required>
+                        <input type="text" name="goodToKnow" required>
                     </div>
 
                     <div class="form-item">
                         <label for="image-link">Image link: </label>
-                        <input type="text" name="image-link" required>
+                        <input type="text" name="imageLink" required>
                     </div>
+                    <button type="submit" id="submitbtn">SUBMIT</button>
                 </form>
             </div>
         </div>
