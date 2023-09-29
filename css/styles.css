@@ -42,11 +42,13 @@ h1, p {
 .card {
   width: 40%;
   display: flex;
+  flex-direction: column;
   color: #000000;
   padding: 1rem;
   box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.75);
   border-radius: 1rem;
   background-color: #f1f1f1;
+  justify-content: flex-start;
 }
 
 .card-image {
@@ -56,6 +58,14 @@ h1, p {
 
 .gtk {
   font-style: italic;
+}
+
+.delbtn {
+  width: 8%;
+  border: none;
+  color: #000000;
+  justify-self: flex-end;
+  align-self: flex-end;
 }
 
 .bottom-panel  {

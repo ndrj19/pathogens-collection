@@ -16,7 +16,7 @@ function createCard(array $pathogen): string
 
     $cardHtml = '';
 
-    $cardHtml .= '<div class="card"><div><img src="' . $image_link . '" alt="Image of ' . $aka . '." class="card-image">'
+    $cardHtml .= '<div class="card"><img src="' . $image_link . '" alt="Image of ' . $aka . '." class="card-image">'
         . '<p> Species: ' . $pathogen['species'] . '</p>'
         . '<p> A.k.a: ' . $aka . '</p>'
         . '<p> Classification: ' . $pathogen['pathogen_classification'] . '</p>'
@@ -24,7 +24,8 @@ function createCard(array $pathogen): string
         . '<p> Deaths per year : ' . $deaths_per_year . '</p>'
         . '<p> Year: ' . $pathogen['year'] . '</p>'
         . '<p class="gtk"> Good to know: ' . $pathogen['good_to_know'] . '</p>'
-        . '</div></div>';
+        . '<a href="delete.php" class="delbtn" id="' . $pathogen['id'] . '"><i class="fa-solid fa-trash"></i></a>'
+        . '</div>';
     return $cardHtml;
 }
 
